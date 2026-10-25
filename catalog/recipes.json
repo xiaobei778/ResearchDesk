@@ -1,0 +1,2576 @@
+{
+  "source": "ResearchDesk executable workflow configuration. Output paths describe this application, not a third-party package contract. Historical functional identifiers are retained for compatibility.",
+  "templates": [
+    {
+      "id": "idea_discovery",
+      "name": "Idea 发现",
+      "description": "调研方向、提出候选想法，检查新颖性与可行性。",
+      "category": "research",
+      "steps": [
+        {
+          "skill": "research-lit",
+          "name": "文献调研",
+          "outputs": [
+            "literature_review.md",
+            "references.bib"
+          ],
+          "review": false
+        },
+        {
+          "skill": "idea-creator",
+          "name": "Idea 生成",
+          "outputs": [
+            "IDEA_REPORT.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "novelty-check",
+          "name": "新颖性验证",
+          "outputs": [
+            "novelty_check_report.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "research-review",
+          "name": "外部评审",
+          "outputs": [
+            "review_report.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "research-refine-pipeline",
+          "name": "方法精炼+实验规划",
+          "outputs": [
+            "refine-logs/FINAL_PROPOSAL.md",
+            "refine-logs/EXPERIMENT_PLAN.md"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "experiment_bridge",
+      "name": "实验桥接",
+      "description": "生成并审阅实验代码，实际执行后整理结果与证据。",
+      "category": "research",
+      "steps": [
+        {
+          "skill": "experiment-bridge",
+          "name": "实验实现+部署+出图",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "auto_review",
+      "name": "自动审稿循环",
+      "description": "按设定轮数分别审稿与修订，保留修改记录和研究边界。",
+      "category": "research",
+      "steps": [
+        {
+          "skill": "auto-review-loop",
+          "name": "自动审稿循环",
+          "outputs": [
+            "paper/review.md"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "paper_writing",
+      "name": "论文写作",
+      "description": "基于资料规划结构、分析证据、组织图表并完成文稿与导出。",
+      "category": "academic",
+      "steps": [
+        {
+          "skill": "paper-plan",
+          "name": "论文大纲",
+          "outputs": [
+            "PAPER_PLAN.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-analysis",
+          "name": "代码实现",
+          "outputs": [
+            "results/analysis.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-write",
+          "name": "LaTeX 写作",
+          "outputs": [
+            "paper/main.md",
+            "paper/references.bib"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-compile",
+          "name": "编译 PDF",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        },
+        {
+          "skill": "auto-paper-improvement-loop",
+          "name": "论文改进循环",
+          "outputs": [
+            "paper/review.md"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "paper_writing_zh",
+      "name": "中文论文写作",
+      "description": "基于资料规划结构、分析证据、组织图表并完成文稿与导出。",
+      "category": "academic",
+      "steps": [
+        {
+          "skill": "paper-plan-zh",
+          "name": "论文大纲（中文）",
+          "outputs": [
+            "PAPER_PLAN.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-analysis",
+          "name": "代码实现",
+          "outputs": [
+            "results/analysis.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-write-zh",
+          "name": "LaTeX 写作（中文）",
+          "outputs": [
+            "paper/main.md",
+            "paper/references.bib"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-compile-zh",
+          "name": "编译 PDF（中文）",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        },
+        {
+          "skill": "auto-paper-improvement-loop",
+          "name": "论文改进循环",
+          "outputs": [
+            "paper/review.md"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "nature_writing",
+      "name": "Nature 论文写作",
+      "description": "基于资料规划结构、分析证据、组织图表并完成文稿与导出。",
+      "category": "academic",
+      "steps": [
+        {
+          "skill": "paper-plan",
+          "name": "论文规划",
+          "outputs": [
+            "PAPER_PLAN.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-analysis",
+          "name": "数据分析",
+          "outputs": [
+            "results/analysis.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "nature-figure",
+          "name": "Nature 图表",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-write-nature",
+          "name": "Nature 写作",
+          "outputs": [
+            "paper/main.md",
+            "paper/references.bib"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-compile",
+          "name": "论文编译",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        },
+        {
+          "skill": "auto-paper-improvement-loop",
+          "name": "改进循环",
+          "outputs": [
+            "paper/review.md"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "full_pipeline",
+      "name": "全流程",
+      "description": "文献调研、Idea、方法精炼、真实计算、论文写作与审稿修订。",
+      "category": "research",
+      "steps": [
+        {
+          "skill": "research-lit",
+          "name": "文献调研",
+          "outputs": [
+            "literature_review.md",
+            "references.bib"
+          ],
+          "review": false
+        },
+        {
+          "skill": "idea-creator",
+          "name": "Idea 生成",
+          "outputs": [
+            "IDEA_REPORT.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "novelty-check",
+          "name": "新颖性验证",
+          "outputs": [
+            "novelty_check_report.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "research-review",
+          "name": "外部评审",
+          "outputs": [
+            "review_report.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "research-refine-pipeline",
+          "name": "方法精炼+实验规划",
+          "outputs": [
+            "refine-logs/FINAL_PROPOSAL.md",
+            "refine-logs/EXPERIMENT_PLAN.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "experiment-bridge",
+          "name": "实验实现+出图",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-plan",
+          "name": "论文大纲",
+          "outputs": [
+            "PAPER_PLAN.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-write",
+          "name": "LaTeX 写作",
+          "outputs": [
+            "paper/main.md",
+            "paper/references.bib"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-compile",
+          "name": "编译 PDF",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        },
+        {
+          "skill": "auto-paper-improvement-loop",
+          "name": "论文改进循环",
+          "outputs": [
+            "paper/review.md"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_cumcm",
+      "name": "国赛 (CUMCM)",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_mcm",
+      "name": "美赛 (MCM/ICM)",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "Problem Analysis",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "Modeling & Solution",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "Programming",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "Figure Generation",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "Flow & Architecture Diagrams",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "Logic Adversarial Review",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-en",
+          "name": "Paper Writing (English)",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-en",
+          "name": "Compile & Compliance Check",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_huawei",
+      "name": "华为杯",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-huawei-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_apmcm_zh",
+      "name": "亚太赛中文 (APMCM)",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_mathorcup",
+      "name": "MathorCup",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_apmcm",
+      "name": "亚太 (APMCM)",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "Flow & Architecture Diagrams",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-en",
+          "name": "Paper Writing",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-en",
+          "name": "Compile & Compliance Check",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_stats",
+      "name": "统计建模大赛",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-stats-topic",
+          "name": "选题与数据规划",
+          "outputs": [
+            "TOPIC_PLAN.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "数据采集与统计分析",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_teddy",
+      "name": "泰迪杯",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_certcup",
+      "name": "认证杯",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_huazhong",
+      "name": "华中杯",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_huadong",
+      "name": "华东杯",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_wuyi",
+      "name": "五一杯",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_shuwei",
+      "name": "数维杯",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_zhongqing",
+      "name": "中青杯",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_yangtze",
+      "name": "长三角",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_diangong",
+      "name": "电工杯",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_shenzhen",
+      "name": "深圳杯",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_huashu",
+      "name": "华数杯",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_tianfu",
+      "name": "天府杯",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_liaoning",
+      "name": "辽宁省/东三省",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_certcup_en",
+      "name": "小美赛 (认证杯国际)",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "Problem Analysis",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "Modeling & Solution",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "Programming",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "Figure Generation",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "Flow & Architecture Diagrams",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "Logic Adversarial Review",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-en",
+          "name": "Paper Writing (English)",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-en",
+          "name": "Compile & Compliance Check",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_shuwei_en",
+      "name": "数维杯国际赛",
+      "description": "逐问分析题目、建立模型、审阅代码、实际计算与撰写竞赛论文。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "Problem Analysis",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "Modeling & Solution",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "Programming",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "Figure Generation",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "Flow & Architecture Diagrams",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "Logic Adversarial Review",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-en",
+          "name": "Paper Writing (English)",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-en",
+          "name": "Compile & Compliance Check",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "thesis_proposal",
+      "name": "开题报告",
+      "description": "整理背景与文献，明确问题、技术路线、计划和预期成果。",
+      "category": "academic",
+      "steps": [
+        {
+          "skill": "thesis-proposal",
+          "name": "文献调研与开题撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "技术路线图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "docx-export",
+          "name": "格式检查与 Word 导出",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "literature_review",
+      "name": "文献综述",
+      "description": "核验候选来源，按问题分类比较文献并形成综述草稿。",
+      "category": "academic",
+      "steps": [
+        {
+          "skill": "literature-review",
+          "name": "文献检索与综述撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "docx-export",
+          "name": "格式检查与 Word 导出",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "course_paper",
+      "name": "课程论文",
+      "description": "基于资料规划结构、分析证据、组织图表并完成文稿与导出。",
+      "category": "academic",
+      "steps": [
+        {
+          "skill": "course-plan",
+          "name": "大纲与图表规划",
+          "outputs": [
+            "OUTLINE.md",
+            "PAPER_PLAN.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-analysis",
+          "name": "数据分析",
+          "outputs": [
+            "results/analysis.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "架构图/流程图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "course-paper",
+          "name": "课程论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "docx-export",
+          "name": "格式检查与 Word 导出",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "course_report",
+      "name": "课程报告",
+      "description": "基于资料规划结构、分析证据、组织图表并完成文稿与导出。",
+      "category": "academic",
+      "steps": [
+        {
+          "skill": "course-report-plan",
+          "name": "事实提取与大纲规划",
+          "outputs": [
+            "PROJECT_FACTS.md",
+            "OUTLINE.md",
+            "PAPER_PLAN.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-analysis",
+          "name": "数据分析",
+          "outputs": [
+            "results/analysis.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure",
+          "name": "数据图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "架构图/流程图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "course-report",
+          "name": "课程报告撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "docx-export",
+          "name": "格式检查与 Word 导出",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "humanities_paper",
+      "name": "人文社科论文",
+      "description": "基于资料规划结构、分析证据、组织图表并完成文稿与导出。",
+      "category": "academic",
+      "steps": [
+        {
+          "skill": "humanities-plan",
+          "name": "选题与结构规划",
+          "outputs": [
+            "OUTLINE.md",
+            "PAPER_PLAN.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-analysis",
+          "name": "数据分析（可选）",
+          "outputs": [
+            "results/analysis.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure",
+          "name": "数据图表生成（可选）",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "理论框架图/示意图（可选）",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "humanities-write",
+          "name": "论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "docx-export",
+          "name": "格式检查与 Word 导出",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "paper_from_assets",
+      "name": "从已有资料写论文",
+      "description": "梳理已有文献、数据、代码与结果，围绕实际证据组织论文。",
+      "category": "assets",
+      "steps": [
+        {
+          "skill": "assets-inventory",
+          "name": "资产清点与一致性检查",
+          "outputs": [
+            "docs/assets_inventory.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-plan",
+          "name": "论文规划",
+          "outputs": [
+            "PAPER_PLAN.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-analysis",
+          "name": "缺口补全(代码/结果)",
+          "outputs": [
+            "results/analysis.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure",
+          "name": "缺口补全(图表)",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "缺口补全(架构图/路线图)",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-write",
+          "name": "论文撰写",
+          "outputs": [
+            "paper/main.md",
+            "paper/references.bib"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-compile",
+          "name": "编译 PDF",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "grad_project",
+      "name": "一句话生成项目",
+      "description": "梳理需求、设计架构、生成代码原型与自检清单；服务运行需另行验证。",
+      "category": "development",
+      "steps": [
+        {
+          "skill": "dev-requirement",
+          "name": "需求分析",
+          "outputs": [
+            "REQUIREMENTS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "dev-design",
+          "name": "系统设计",
+          "outputs": [
+            "DESIGN.md",
+            "schema.sql"
+          ],
+          "review": true
+        },
+        {
+          "skill": "dev-code",
+          "name": "编码实现",
+          "outputs": [
+            "code/prototype.py",
+            "RUN.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "dev-selfcheck",
+          "name": "自测验证",
+          "outputs": [
+            "TEST_REPORT.md"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "copyright_material",
+      "name": "生成软著申请资料",
+      "description": "整理真实软件信息，形成申请信息草稿和资料清单。",
+      "category": "ip",
+      "steps": [
+        {
+          "skill": "copyright-draft",
+          "name": "起草申请资料",
+          "outputs": [
+            "软件著作权申请资料/草稿/申请表信息.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "copyright-build",
+          "name": "生成正式 Word/TXT",
+          "outputs": [
+            "软件著作权申请资料/正式资料/生成报告.md"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "patent_disclosure",
+      "name": "生成专利交底书",
+      "description": "整理技术方案、实施例、待核验效果与技术交底书。",
+      "category": "ip",
+      "steps": [
+        {
+          "skill": "patent-draft",
+          "name": "起草技术交底书",
+          "outputs": [
+            "专利交底书/交底书草稿.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "patent-build",
+          "name": "渲染图示并导出 Word",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "comp_mathorcup_bigdata",
+      "name": "MathorCup 大数据",
+      "description": "数据质量检查、建模与真实计算、论文及提交包；按上传赛题核对提交要求。",
+      "category": "competition",
+      "steps": [
+        {
+          "skill": "comp-prob-analysis",
+          "name": "赛题分析",
+          "outputs": [
+            "PROBLEM_ANALYSIS.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "data-quality",
+          "name": "真实数据质量检查",
+          "outputs": [
+            "docs/data_quality.json",
+            "docs/data_quality.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "建模求解",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "编程实现",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": true
+        },
+        {
+          "skill": "paper-figure",
+          "name": "图表生成",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure-drawio",
+          "name": "流程与架构图绘制",
+          "outputs": [
+            "figures/method.svg",
+            "figures/caption.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-review",
+          "name": "逻辑对抗复核",
+          "outputs": [
+            "COMP_REVIEW.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "comp-paper-zh",
+          "name": "竞赛论文撰写",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-compile-zh",
+          "name": "编译与合规检查",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        },
+        {
+          "skill": "submission-package",
+          "name": "生成与核验提交包",
+          "outputs": [
+            "exports/submission.zip",
+            "exports/submission_manifest.json"
+          ],
+          "review": false
+        }
+      ]
+    },
+    {
+      "id": "survey_market",
+      "name": "市场调查与问卷研究",
+      "description": "选题与抽样、问卷审阅、真实答卷导入、数据检查和分析报告。",
+      "category": "academic",
+      "steps": [
+        {
+          "skill": "survey-plan",
+          "name": "选题与抽样计划",
+          "outputs": [
+            "docs/survey_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "survey-questionnaire",
+          "name": "问卷草案与人工定稿",
+          "outputs": [
+            "docs/questionnaire.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "data-quality",
+          "name": "真实答卷质量检查",
+          "outputs": [
+            "docs/data_quality.json",
+            "docs/data_quality.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-modeling",
+          "name": "统计分析方案",
+          "outputs": [
+            "MODELING_REPORT.md",
+            "docs/survey_analysis_plan.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "comp-code",
+          "name": "生成分析代码",
+          "outputs": [
+            "code/experiment.py"
+          ],
+          "review": false
+        },
+        {
+          "skill": "paper-figure",
+          "name": "实际数据指标图",
+          "outputs": [
+            "results/figures.md"
+          ],
+          "review": false
+        },
+        {
+          "skill": "course-report",
+          "name": "调查报告草稿",
+          "outputs": [
+            "paper/main.md"
+          ],
+          "review": true
+        },
+        {
+          "skill": "docx-export",
+          "name": "导出调查报告",
+          "outputs": [
+            "exports/paper.docx",
+            "exports/paper.pdf"
+          ],
+          "review": false
+        }
+      ]
+    }
+  ]
+}

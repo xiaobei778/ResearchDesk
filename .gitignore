@@ -1,0 +1,24 @@
+# User projects, credentials and backups
+/data/
+/backups/
+/test-data/
+/.env
+/.env.*
+!/.env.example
+*.sqlite*
+*.db
+*.db-*
+*.log
+*.pem
+*.key
+# Local runtimes and build outputs
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+.DS_Store
+Thumbs.db
